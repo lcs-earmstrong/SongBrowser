@@ -17,6 +17,10 @@ struct ContentView: View {
         
         VStack{
             SearchBarView(text: $searchText)
+            
+            // Push the search bar to the top
+            
+            Spacer()
         }
 
     }
