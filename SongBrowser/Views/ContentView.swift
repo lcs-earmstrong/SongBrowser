@@ -15,11 +15,11 @@ struct ContentView: View {
     @State private var searchText = ""
     
     // Keeps the list of songs retrieved from Apple Music
-    @State private var songs: [Song]
+    @State private var songs: [Song] = []  //empty array to start
     
     var body: some View {
         
-        VStack{
+        VStack {
             SearchBarView(text: $searchText)
                 .onChange(of: searchText) {_ in
                     fetchSongResults()
@@ -37,14 +37,27 @@ struct ContentView: View {
                 Spacer()
                 
             }else{
-                // Push the search bar to the top
-                Spacer()
+      //Search text was given, results obtained
+                // Show the list of results
+                // keypath of \.trackId tels the list view what property to use
+                // to uniquely identify each song
+        List(songs, id: \.trackId){currentSong in
+        
+            
+            VStack(alignment .leading){
                 
+                Text(currentSong.trackName)
+            
+                Text(currentSong.artistName)
+                    .font(.caption)
+            }
+            
+        }
+                    
             }
             
     
         }
-
     }
     
     //Mark: FUnctions
@@ -134,3 +147,4 @@ struct ContentView_Previews: PreviewProvider {
         ContentView()
     }
 }
+
