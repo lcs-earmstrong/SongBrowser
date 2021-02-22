@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		B8084A0125E410BE00AB9B36 /* SimpleListItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8084A0025E410BE00AB9B36 /* SimpleListItemView.swift */; };
+		B8084A0625E414D300AB9B36 /* SongDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8084A0525E414D300AB9B36 /* SongDetailView.swift */; };
+		B8084A0925E414EA00AB9B36 /* ItemDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8084A0825E414EA00AB9B36 /* ItemDetailView.swift */; };
+		B8084A0C25E414FF00AB9B36 /* RemoteImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8084A0B25E414FF00AB9B36 /* RemoteImageView.swift */; };
+		B8084A0F25E4150F00AB9B36 /* RemoteAudioView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8084A0E25E4150F00AB9B36 /* RemoteAudioView.swift */; };
 		B877B44B25E1591700E2EBEE /* SongBrowserApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B877B44A25E1591700E2EBEE /* SongBrowserApp.swift */; };
 		B877B44D25E1591700E2EBEE /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B877B44C25E1591700E2EBEE /* ContentView.swift */; };
 		B877B44F25E1591E00E2EBEE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B877B44E25E1591E00E2EBEE /* Assets.xcassets */; };
@@ -19,6 +23,10 @@
 
 /* Begin PBXFileReference section */
 		B8084A0025E410BE00AB9B36 /* SimpleListItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleListItemView.swift; sourceTree = "<group>"; };
+		B8084A0525E414D300AB9B36 /* SongDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongDetailView.swift; sourceTree = "<group>"; };
+		B8084A0825E414EA00AB9B36 /* ItemDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDetailView.swift; sourceTree = "<group>"; };
+		B8084A0B25E414FF00AB9B36 /* RemoteImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteImageView.swift; sourceTree = "<group>"; };
+		B8084A0E25E4150F00AB9B36 /* RemoteAudioView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteAudioView.swift; sourceTree = "<group>"; };
 		B877B44725E1591600E2EBEE /* SongBrowser.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SongBrowser.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B877B44A25E1591700E2EBEE /* SongBrowserApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongBrowserApp.swift; sourceTree = "<group>"; };
 		B877B44C25E1591700E2EBEE /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -82,6 +90,11 @@
 			children = (
 				B877B45D25E15A2200E2EBEE /* SearchBarView.swift */,
 				B877B44C25E1591700E2EBEE /* ContentView.swift */,
+				B8084A0525E414D300AB9B36 /* SongDetailView.swift */,
+				B8084A0E25E4150F00AB9B36 /* RemoteAudioView.swift */,
+				B8084A0B25E414FF00AB9B36 /* RemoteImageView.swift */,
+				B8084A0825E414EA00AB9B36 /* ItemDetailView.swift */,
+				B8084A0025E410BE00AB9B36 /* SimpleListItemView.swift */,
 				B877B46225E15DF900E2EBEE /* Model */,
 			);
 			path = Views;
@@ -90,7 +103,6 @@
 		B877B46225E15DF900E2EBEE /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				B8084A0025E410BE00AB9B36 /* SimpleListItemView.swift */,
 				B877B46325E15E2500E2EBEE /* Song.swift */,
 				B877B46725E15EA200E2EBEE /* SearchResult.swift */,
 			);
@@ -166,9 +178,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B8084A0625E414D300AB9B36 /* SongDetailView.swift in Sources */,
+				B8084A0C25E414FF00AB9B36 /* RemoteImageView.swift in Sources */,
 				B877B46425E15E2500E2EBEE /* Song.swift in Sources */,
+				B8084A0F25E4150F00AB9B36 /* RemoteAudioView.swift in Sources */,
 				B877B44D25E1591700E2EBEE /* ContentView.swift in Sources */,
 				B877B46825E15EA200E2EBEE /* SearchResult.swift in Sources */,
+				B8084A0925E414EA00AB9B36 /* ItemDetailView.swift in Sources */,
 				B877B45E25E15A2200E2EBEE /* SearchBarView.swift in Sources */,
 				B877B44B25E1591700E2EBEE /* SongBrowserApp.swift in Sources */,
 				B8084A0125E410BE00AB9B36 /* SimpleListItemView.swift in Sources */,
