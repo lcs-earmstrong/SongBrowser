@@ -37,33 +37,25 @@ struct ContentView: View {
                 Spacer()
                 
             }else{
-      //Search text was given, results obtained
+                //Search text was given, results obtained
                 // Show the list of results
                 // keypath of \.trackId tels the list view what property to use
                 // to uniquely identify each song
-        List(songs, id: \.trackId){currentSong in
-        
-            
-            VStack(alignment: .leading){
-                
-                
-                Text(currentSong.trackName)
-            
-                Text(currentSong.artistName)
-                    .font(.caption)
-            }
-            
-        }
+                List(songs, id: \.trackId){currentSong in
                     
+                    SimpleListItemView(title: currentSong.trackName, caption: currentSong.artistName)
+                    
+                }
+                
             }
             
-    
+            
         }
     }
     
     //Mark: FUnctions
     func fetchSongResults() {
-    
+        
         
         // sanitize the search input
         
@@ -71,20 +63,20 @@ struct ContentView: View {
         
         // Set the address of the JSON endpoint
         let url = URL(string: "https://itunes.apple.com/search?term=\(input)&entity=song")!
-
+        
         // Configure a URLRequest instance
         // Defines what type of request will be sent to the address noted above
         var request = URLRequest(url: url)
         request.setValue("application/json",
                          forHTTPHeaderField: "Accept")
         request.httpMethod = "GET"
-
+        
         // Run the request on a background thread and process the result.
         // NOTE: This occurs asynchronously.
         //       That means we don't know precisely when the request will
         //       complete.
         URLSession.shared.dataTask(with: request) { data, response, error in
-
+            
             // When the request *does* complete, there are three parameters
             // containing data that are created:
             //
@@ -96,11 +88,11 @@ struct ContentView: View {
             //
             // error
             // An error object that indicates why the request failed, or nil if the request was successful.
-
-
+            
+            
             // Verify that some data was actually returned
             guard let songData = data else {
-
+                
                 // When no data is returned, provide a descriptive error
                 //
                 // error?.localizedDescription is an example of "optional chaining"
@@ -111,40 +103,40 @@ struct ContentView: View {
                 // This means that when the error object *is* nil, a default string of
                 // "Unknown error" will be provided
                 print("No data in response: \(error?.localizedDescription ?? "Unknown error")")
-
+                
                 // Don't continue past this point
                 return
-
+                
             }
-
+            
             // DEBUG: See what raw JSON data was returned from the server
             print(String(data: songData, encoding: .utf8)!)
-
+            
             // Attempt to decode the JSON into an instance of the SearchResult structure
             if let decodedSongData = try? JSONDecoder().decode(SearchResult.self, from: songData) {
-
+                
                 // DEBUG:
                 print("Song data decoded from JSON successfully")
                 
                 // Now, update the UI on the main thread
                 DispatchQueue.main.async {
-
+                    
                     // Assign the result to the "songs" property
-                songs = decodedSongData.results
-
+                    songs = decodedSongData.results
+                    
                 }
-
+                
             } else {
-
+                
                 print("Could not decode JSON into an instance of the SearchResult structure.")
-
+                
             }
-
+            
         }.resume()
         // NOTE: Invoking the resume() function
         // on the dataTask closure is key. The request will not
         // run, otherwise.
-
+        
     }
 }
 
