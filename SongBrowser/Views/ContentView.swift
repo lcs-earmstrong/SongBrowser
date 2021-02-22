@@ -44,7 +44,8 @@ struct ContentView: View {
         List(songs, id: \.trackId){currentSong in
         
             
-            VStack(alignment .leading){
+            VStack(alignment: .leading){
+                
                 
                 Text(currentSong.trackName)
             
@@ -62,9 +63,14 @@ struct ContentView: View {
     
     //Mark: FUnctions
     func fetchSongResults() {
+    
+        
+        // sanitize the search input
+        
+        let input = searchText.lowercased().replacingOccurrences(of: " ", with: "+")
         
         // Set the address of the JSON endpoint
-        let url = URL(string: "https://itunes.apple.com/search?term=taylor+swift&entity=song")!
+        let url = URL(string: "https://itunes.apple.com/search?term=\(input)&entity=song")!
 
         // Configure a URLRequest instance
         // Defines what type of request will be sent to the address noted above
